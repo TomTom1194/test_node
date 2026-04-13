@@ -9,7 +9,7 @@ router.get("/login", (req, res) => {
 });
 
 /* POST login. */
-router.post("/login", async (req, res) => {
+router.post("/login", async (req, res, next) => {
   try {
     const { username, password } = req.body;
     const user = await User.findOne({ username });
