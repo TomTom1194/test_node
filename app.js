@@ -14,7 +14,7 @@ const mongoose = require("mongoose");
 mongoose
   // .connect("mongodb://localhost:27017/CustomerDB")
   .connect(
-    "tangthientan10194_db_user:70IpON2nGIgfHaSS@cluster0.erd7x8u.mongodb.net/?appName=Cluster0",
+    "mongodb+srv://tangthientan10194_db_user:70IpON2nGIgfHaSS@cluster0.erd7x8u.mongodb.net/?appName=Cluster0",
   )
   .then(() => console.log("Connect MongoDB Successfully"))
   .catch((err) => console.log("MongoDB Error:", err));
