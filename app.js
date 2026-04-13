@@ -12,16 +12,14 @@ var session = require("express-session");
 const mongoose = require("mongoose");
 
 mongoose
-  .connect("mongodb://localhost:27017/CustomerDB")
+  // .connect("mongodb://localhost:27017/CustomerDB")
+  .connect(
+    "tangthientan10194_db_user:70IpON2nGIgfHaSS@cluster0.erd7x8u.mongodb.net/?appName=Cluster0",
+  )
   .then(() => console.log("Connect MongoDB Successfully"))
   .catch((err) => console.log("MongoDB Error:", err));
 
 var app = express();
-
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
