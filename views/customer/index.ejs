@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer List</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <div class="welcome">
+        <h4>Welcome <%= user.username%>
+        </h4>
+        <button><a href="/users/logout">Logout</a></button>
+    </div>
+    <h1>Customer List</h1>
+    <a href="/customers/create">Create New Customer</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Birthday</th>
+                <th>Gender</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%customers.forEach(c=> {
+                %>
+                <tr>
+                    <td>
+                        <%=c.name%>
+                    </td>
+                    <td>
+                        <%= new Date(c.birthday).toLocaleDateString('en-GB') %>
+                    </td>
+                    <td>
+                        <%=c.gender ? 'Male' : 'Female' %>
+                    </td>
+                    <td>
+                        <%=c.email%>
+                    </td>
+                    <td>
+                        <a href="/customers/detail/<%= c._id %>">View</a> |
+                        <a href="/customers/edit/<%= c._id %>">Edit</a>
+                    </td>
+                </tr>
+                <% })%>
+        </tbody>
+    </table>
+</body>
+
+</html>
